@@ -1,0 +1,644 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-bottom: 2px solid black;
+    z-index: 999;
+    padding: 15px 0;
+}
+
+.navbar.hidden {
+    display: none;
+}
+
+.nav-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-title {
+    font-size: 24px;
+    margin: 0;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.nav-button:hover {
+    background: black;
+    color: white;
+}
+
+/* Survey Panel Styles */
+.survey-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.survey-panel.hidden {
+    display: none;
+}
+
+.survey-content {
+    max-width: 1000px;
+    text-align: center;
+    padding: 40px;
+}
+
+.survey-content h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid black;
+    padding-bottom: 20px;
+}
+
+/* Intro Panel Styles */
+.intro-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.intro-panel.hidden {
+    display: none;
+}
+
+.intro-content {
+    max-width: 1200px;
+    text-align: center;
+    padding: 40px;
+}
+
+.intro-content h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid black;
+    padding-bottom: 20px;
+}
+
+.intro-text {
+    margin-bottom: 40px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.intro-text p {
+    margin: 15px 0;
+}
+
+.survey-button-section {
+    margin-bottom: 40px;
+    padding: 30px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.survey-button-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.survey-button {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.survey-button:hover {
+    background: black;
+    color: white;
+}
+
+.questionnaire-section {
+    margin-bottom: 40px;
+    padding: 30px;
+    border: 2px solid black;
+}
+
+.questionnaire-section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.questionnaire-intro {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.question {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+.question label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.slider-label {
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+}
+
+.slider {
+    flex: 1;
+    height: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ddd;
+    outline: none;
+    border: 1px solid black;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: black;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: black;
+    cursor: pointer;
+    border: none;
+}
+
+.slider-value {
+    font-weight: bold;
+    font-size: 18px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.result-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.calculate-button {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.calculate-button:hover {
+    background: black;
+    color: white;
+}
+
+.suitability-result {
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.suitability-result.tokyo {
+    background: #f0f0f0;
+    border: 2px solid black;
+}
+
+.suitability-result.nyc {
+    background: #f0f0f0;
+    border: 2px solid black;
+}
+
+.back-button {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.back-button:hover {
+    background: black;
+    color: white;
+}
+
+.compare-section {
+    margin-bottom: 40px;
+    padding: 30px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.compare-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.city-options {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.city-option {
+    flex: 1;
+    max-width: 500px;
+    border: 2px solid black;
+    padding: 30px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.city-option h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.city-description {
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 1.8;
+    flex-grow: 1;
+}
+
+.city-description p {
+    margin: 12px 0;
+}
+
+.city-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.city-button:hover {
+    background: black;
+    color: white;
+}
+
+.compare-button {
+    padding: 20px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.compare-button:hover {
+    background: black;
+    color: white;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    padding-top: 0;
+}
+
+.container.with-nav {
+    padding-top: 70px;
+    height: calc(100vh - 70px);
+}
+
+.container.single-city .city-section {
+    width: 100%;
+}
+
+.container.single-city .city-section.hidden {
+    display: none;
+}
+
+.city-section {
+    width: 50%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.city-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid black;
+    min-height: 80px;
+}
+
+.city-header h1 {
+    font-size: 32px;
+    margin: 0;
+    flex: 1;
+    text-align: left;
+}
+
+.nyc .city-header h1 {
+    text-align: center;
+}
+
+.tokyo .city-header h1 {
+    text-align: left;
+}
+
+.container.single-city .tokyo .city-header h1 {
+    text-align: left;
+}
+
+.container.single-city .nyc .city-header h1 {
+    text-align: center;
+}
+
+.currency-toggle {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.currency-toggle:hover {
+    background: black;
+    color: white;
+}
+
+/* Removed - now using .city-header h1 instead */
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0;
+}
+
+.item-card {
+    border: 1px solid black;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-card:hover {
+    opacity: 0.7;
+}
+
+.item-card.selected {
+    background: #f0f0f0;
+    border: 3px solid black;
+}
+
+.item-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.item-info {
+    padding: 10px;
+    text-align: center;
+}
+
+.item-number {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.item-name {
+    font-size: 12px;
+    margin-bottom: 5px;
+    min-height: 30px;
+}
+
+.item-price {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quantity-btn:hover {
+    background: black;
+    color: white;
+}
+
+.quantity-display {
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Budget Calculator Styles */
+.budget-calculator {
+    padding: 20px;
+    border-bottom: 2px solid black;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.budget-calculator.hidden {
+    display: none;
+}
+
+.container.with-nav .budget-calculator {
+    top: 70px;
+}
+
+.day-counter {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.budget-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.budget-row.expense {
+    color: #000;
+}
+
+.budget-row.expense .amount {
+    font-weight: bold;
+}
+
+.budget-row.remaining {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 0 5px 0;
+}
+
+.budget-row .amount {
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.budget-calculator hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 2px solid black;
+}
+
+.items-list {
+    margin: 10px 0;
+    padding: 10px;
+    background: #f5f5f5;
+    border: 1px solid black;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.items-list:empty {
+    display: none;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-row:last-child {
+    border-bottom: none;
+}
+
+.item-name-small {
+    flex: 1;
+    text-align: left;
+}
+
+.item-price-small {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.submit-day-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.submit-day-button:hover {
+    background: black;
+    color: white;
+}
+
+.tokyo {
+    border-right: 2px solid black;
+}
+
