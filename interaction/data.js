@@ -15,7 +15,7 @@ const commodityData = [
     { id: 13, name: "Salmon", tokyoPrice: 670, tokyoPriceUSD: 4.27, nycPrice: 9.99 },
     { id: 14, name: "White Bread Loaf", tokyoPrice: 200, tokyoPriceUSD: 1.27, nycPrice: 4.5 },
     { id: 15, name: "1 Banana", tokyoPrice: 96, tokyoPriceUSD: 0.96, nycPrice: 2.49 },
-    { id: 16, name: "Chicken Breast", tokyoPrice: 6, tokyoPriceUSD: 0.04, nycPrice: 11 },
+    { id: 16, name: "Chicken Breast", tokyoPrice: 300, tokyoPriceUSD: 1.91, nycPrice: 11 },
     { id: 17, name: "Beer (Asahi)", tokyoPrice: 500, tokyoPriceUSD: 3.19, nycPrice: 7 },
     { id: 18, name: "Marlboro Gold Cigarettes (pack)", tokyoPrice: 600, tokyoPriceUSD: 3.82, nycPrice: 21 },
     { id: 19, name: "Red Bull (250ml Can)", tokyoPrice: 190, tokyoPriceUSD: 1.21, nycPrice: 2.37 },

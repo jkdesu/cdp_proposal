@@ -15,71 +15,104 @@
         </div>
     </nav>
 
-    <!-- Survey Panel -->
-    <div id="survey-panel" class="survey-panel hidden">
-        <div class="survey-content">
-            <h1>City Suitability Survey</h1>
+    <!-- Price Volatility Panel -->
+    <div id="volatility-panel" class="volatility-panel hidden">
+        <div class="volatility-content">
+            <div class="volatility-header">
+                <button class="back-button-top" onclick="closeVolatility()">← Back</button>
+                <div class="volatility-title-area">
+                    <h1>Price Volatility Simulator</h1>
+                    <p class="volatility-subtitle">See how prices differ for the same items</p>
+                </div>
+                <div class="header-spacer"></div>
+            </div>
             
-            <div class="questionnaire-section">
-                <h2>Figure out which city might be more suitable for you.</h2>
-                <p class="questionnaire-intro">Rate each factor on a scale of 1-10</p>
+            <div class="volatility-progress-container">
+                <span id="volatility-progress">1 / 30</span>
+                <div class="volatility-progress-track">
+                    <div id="volatility-progress-bar" class="volatility-progress-fill"></div>
+                </div>
+            </div>
+            
+            <h2 id="volatility-item-name" class="volatility-item-title">Loading...</h2>
+            
+            <!-- Main Content Area - Side by Side -->
+            <div class="volatility-main-area">
+                <!-- Left: Commodity Display -->
+                <div class="volatility-left">
+                    <div class="volatility-single-display">
+                        <div id="volatility-card" class="volatility-card">
+                            <div class="volatility-img-container">
+                                <img id="volatility-img" src="" alt="Item">
+                            </div>
+                            <div class="volatility-price-tag">
+                                <span id="volatility-price" class="volatility-price-main">¥0</span>
+                                <span id="volatility-price-converted" class="volatility-price-sub"></span>
+                            </div>
+                        </div>
+                        
+                        <div id="volatility-city-indicator" class="volatility-city-indicator">Tokyo</div>
+                    </div>
+                </div>
                 
-                <div class="question">
-                    <label>1. How comfortable do you feel expressing your personal identity in this city?</label>
-                    <div class="slider-container">
-                        <span class="slider-label">1 (Not comfortable)</span>
-                        <input type="range" min="1" max="10" value="5" class="slider" id="q1">
-                        <span class="slider-value" id="q1-value">5</span>
-                        <span class="slider-label">10 (Very comfortable)</span>
+                <!-- Right: Face Tracking -->
+                <div class="volatility-right">
+                    <div class="reaction-tracker">
+                        <div class="reaction-header">
+                            <h3>Your Reaction</h3>
+                            <div class="tracking-status-container">
+                                <span id="tracking-status-dot" class="tracking-status-dot"></span>
+                                <span id="tracking-status">Click to enable</span>
+                            </div>
+                        </div>
+                        
+                        <div class="webcam-container">
+                            <video id="webcam-feed" autoplay playsinline muted></video>
+                            <div id="webcam-overlay" class="webcam-overlay">
+                                <span>Camera off</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reaction-meters">
+                            <div class="reaction-meter">
+                                <label>Expression Change Rate</label>
+                                <div class="reaction-bar-track">
+                                    <div id="reaction-intensity-bar" class="reaction-bar-fill"></div>
+                                </div>
+                                <span id="reaction-intensity-value" class="reaction-value">0.0%</span>
+                            </div>
+                            
+                            <div class="reaction-meter">
+                                <label>Peak Reaction</label>
+                                <span id="reaction-peak-value" class="reaction-value peak">0.0%</span>
+                            </div>
+                        </div>
+                        
+                        <button id="toggle-tracking-btn" class="toggle-tracking-btn" onclick="toggleFaceTracking()">
+                            Enable Face Tracking
+                        </button>
                     </div>
                 </div>
-
-                <div class="question">
-                    <label>2. Do you feel comfortable communicating openly with managers?</label>
-                    <div class="slider-container">
-                        <span class="slider-label">1 (Not comfortable)</span>
-                        <input type="range" min="1" max="10" value="5" class="slider" id="q2">
-                        <span class="slider-value" id="q2-value">5</span>
-                        <span class="slider-label">10 (Very comfortable)</span>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label>3. How accessible are new job opportunities in your field?</label>
-                    <div class="slider-container">
-                        <span class="slider-label">1 (Not accessible)</span>
-                        <input type="range" min="1" max="10" value="5" class="slider" id="q3">
-                        <span class="slider-value" id="q3-value">5</span>
-                        <span class="slider-label">10 (Very accessible)</span>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label>4. How satisfied are you with the healthcare system and insurance coverage?</label>
-                    <div class="slider-container">
-                        <span class="slider-label">1 (Not satisfied)</span>
-                        <input type="range" min="1" max="10" value="5" class="slider" id="q4">
-                        <span class="slider-value" id="q4-value">5</span>
-                        <span class="slider-label">10 (Very satisfied)</span>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label>5. Do you feel the city treats residents fairly regardless of income, gender, or nationality?</label>
-                    <div class="slider-container">
-                        <span class="slider-label">1 (Not fairly)</span>
-                        <input type="range" min="1" max="10" value="5" class="slider" id="q5">
-                        <span class="slider-value" id="q5-value">5</span>
-                        <span class="slider-label">10 (Very fairly)</span>
-                    </div>
-                </div>
-
-                <div class="result-section">
-                    <button class="calculate-button" onclick="calculateSuitability()">Calculate My Result</button>
-                    <div id="suitability-result" class="suitability-result"></div>
-                </div>
-
-                <button class="back-button" onclick="closeSurvey()">← Back to Start</button>
+            </div>
+            
+            <!-- Price Difference - Below main area -->
+            <div id="volatility-difference" class="volatility-difference hidden">
+                <span id="volatility-diff-value" class="volatility-diff-text"></span>
+                <span id="volatility-diff-percent" class="volatility-diff-percent"></span>
+            </div>
+            
+            <div class="volatility-controls">
+                <button class="volatility-nav-btn" onclick="prevItem()">← Prev</button>
+                <button id="volatility-play-btn" class="volatility-play-btn" onclick="togglePlayPause()">▶ Play</button>
+                <button class="volatility-nav-btn" onclick="nextItem()">Next →</button>
+            </div>
+            
+            <div id="volatility-dots" class="volatility-dots"></div>
+            
+            <!-- Expression Graph -->
+            <div class="expression-graph-container">
+                <h4>Expression Change Over Time</h4>
+                <canvas id="expression-graph" width="600" height="120"></canvas>
             </div>
         </div>
     </div>
@@ -95,8 +128,8 @@
             </div>
 
             <div class="survey-button-section">
-                <h2>Figure out which city might be more suitable for you.</h2>
-                <button class="survey-button" onclick="openSurvey()">Take a Survey</button>
+                <h2>See how prices differ between Tokyo and NYC</h2>
+                <button class="survey-button" onclick="openVolatility()">Explore Price Volatility</button>
             </div>
 
             <div class="compare-section">
@@ -195,7 +228,8 @@
     <script src="interaction/data.js"></script>
     <script src="interaction/state.js"></script>
     <script src="interaction/currency.js"></script>
-    <script src="interaction/survey.js"></script>
+    <script src="interaction/facetracking.js"></script>
+    <script src="interaction/volatility.js"></script>
     <script src="interaction/items.js"></script>
     <script src="interaction/budget.js"></script>
     <script src="interaction/navigation.js"></script>

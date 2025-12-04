@@ -3,7 +3,7 @@
 // Initialize the application
 function init() {
     renderItems();
-    initializeSliders();
+    initVolatility();
 }
 
 // Start the app when DOM is ready
